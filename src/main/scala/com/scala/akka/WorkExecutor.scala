@@ -6,8 +6,7 @@ class WorkExecutor extends Actor {
 
   def receive = {
     case n: Int =>
-      val n2 = n * n
-      val result = s"$n * $n = $n2"
+      val result = n
       sender() ! Worker.WorkComplete(result)
   }
 

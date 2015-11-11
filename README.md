@@ -1,7 +1,8 @@
-# scala-akka
+# Implement distributed workers with Akka cluster
 - Requirement
 	- Eclipse Luna
 	- JDK 8
+	- Akka
 	- Sbt
 - Build Instruction
 	- After clone project from Github to local computer. Using sbteclipse-plugin to generate eclipse project.
@@ -11,3 +12,9 @@
 - Project Structure
 	- src/main/scala is contain all the codes of this program.
 	- src/test/scala is contain all the unit test of this program.
+	- Main.scala: main class of this program.
+	- WorkProducer.scala: this class to simulate the ID data send to Frontend
+	- Frontend.scala: The Frontend actor will receive request from WorkProducer and then send the data to the Master actor
+	- Master.scala: When the master receives data from Frontend it adds the data item to the queue of pending data and notifies idle Workers.
+	- Worker.scala: The worker register itself periodically to the master, and in case of master fail over the worker re-register itself to the new master.
+	- WorkExecutor.scala: When the worker receives data from the Master it delegates the actual processing to a child actor, WorkExecutor, to keep the worker responsive while executing the data

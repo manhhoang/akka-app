@@ -29,7 +29,7 @@ class WorkProducer(frontend: ActorRef) extends Actor with ActorLogging {
   def receive = {
     case Tick =>
       n += 1
-      log.info("Produced work: {}", n)
+      log.info("Produced ID: {}", n)
       val work = Work(nextWorkId(), n)
       frontend ! work
       context.become(waitAccepted(work), discardOld = false)

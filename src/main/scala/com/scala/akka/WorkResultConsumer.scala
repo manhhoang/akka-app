@@ -13,7 +13,7 @@ class WorkResultConsumer extends Actor with ActorLogging {
   def receive = {
     case _: DistributedPubSubMediator.SubscribeAck =>
     case WorkResult(workId, result) =>
-      log.info("Consumed result: {}", result)
+      log.info("Consumed ID: {}", result)
   }
 
 }
