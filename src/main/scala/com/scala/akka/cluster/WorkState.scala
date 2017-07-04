@@ -1,4 +1,4 @@
-package com.scala.akka
+package com.scala.akka.cluster
 
 import scala.collection.immutable.Queue
 

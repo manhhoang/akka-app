@@ -1,11 +1,11 @@
-package com.scala.akka
+package com.scala.akka.cluster
 
 import java.util.UUID
-import scala.concurrent.forkjoin.ThreadLocalRandom
+
+import akka.actor.{Actor, ActorLogging, ActorRef}
+
 import scala.concurrent.duration._
-import akka.actor.Actor
-import akka.actor.ActorLogging
-import akka.actor.ActorRef
+import scala.concurrent.forkjoin.ThreadLocalRandom
 
 object WorkProducer {
   case object Tick

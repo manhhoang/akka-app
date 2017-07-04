@@ -1,9 +1,7 @@
-package com.scala.akka
+package com.scala.akka.cluster
 
-import akka.actor.Actor
-import akka.actor.ActorLogging
-import akka.cluster.pubsub.DistributedPubSub
-import akka.cluster.pubsub.DistributedPubSubMediator
+import akka.actor.{Actor, ActorLogging}
+import akka.cluster.pubsub.{DistributedPubSub, DistributedPubSubMediator}
 
 class WorkResultConsumer extends Actor with ActorLogging {
 

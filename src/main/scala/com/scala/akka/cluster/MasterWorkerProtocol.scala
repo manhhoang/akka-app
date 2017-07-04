@@ -1,4 +1,4 @@
-package com.scala.akka
+package com.scala.akka.cluster
 
 object MasterWorkerProtocol {
   // Messages from Workers

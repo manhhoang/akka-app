@@ -1,15 +1,12 @@
-package com.scala.akka
+package com.scala.akka.cluster
 
-import akka.actor.ActorLogging
-import akka.actor.ActorRef
-import akka.cluster.pubsub.DistributedPubSub
-import akka.cluster.pubsub.DistributedPubSubMediator
-import scala.concurrent.duration.Deadline
-import scala.concurrent.duration.FiniteDuration
-import akka.actor.Props
-import akka.cluster.client.ClusterClientReceptionist
+import akka.actor.{ActorLogging, ActorRef, Props}
 import akka.cluster.Cluster
+import akka.cluster.client.ClusterClientReceptionist
+import akka.cluster.pubsub.{DistributedPubSub, DistributedPubSubMediator}
 import akka.persistence.PersistentActor
+
+import scala.concurrent.duration.{Deadline, FiniteDuration}
 
 object Master {
 

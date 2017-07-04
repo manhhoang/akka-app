@@ -1,19 +1,12 @@
-package com.scala.akka
+package com.scala.akka.cluster
 
 import java.util.UUID
-import scala.concurrent.duration._
-import akka.actor.Actor
-import akka.actor.ActorLogging
-import akka.actor.ActorRef
-import akka.actor.Props
-import akka.actor.ReceiveTimeout
-import akka.actor.Terminated
+
+import akka.actor.SupervisorStrategy.{Restart, Stop}
+import akka.actor.{Actor, ActorInitializationException, ActorLogging, ActorRef, DeathPactException, OneForOneStrategy, Props, ReceiveTimeout, Terminated}
 import akka.cluster.client.ClusterClient.SendToAll
-import akka.actor.OneForOneStrategy
-import akka.actor.SupervisorStrategy.Stop
-import akka.actor.SupervisorStrategy.Restart
-import akka.actor.ActorInitializationException
-import akka.actor.DeathPactException
+
+import scala.concurrent.duration._
 
 object Worker {
 
@@ -25,8 +18,8 @@ object Worker {
 
 class Worker(clusterClient: ActorRef, workExecutorProps: Props, registerInterval: FiniteDuration)
   extends Actor with ActorLogging {
-  import Worker._
   import MasterWorkerProtocol._
+  import Worker._
 
   val workerId = UUID.randomUUID().toString
 

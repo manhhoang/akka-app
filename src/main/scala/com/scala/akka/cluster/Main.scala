@@ -1,22 +1,15 @@
-package com.scala.akka
+package com.scala.akka.cluster
+
+import akka.actor.{ActorIdentity, ActorPath, ActorSystem, AddressFromURIString, Identify, PoisonPill, Props, RootActorPath}
+import akka.cluster.client.{ClusterClient, ClusterClientSettings}
+import akka.cluster.singleton.{ClusterSingletonManager, ClusterSingletonManagerSettings}
+import akka.japi.Util.immutableSeq
+import akka.pattern.ask
+import akka.persistence.journal.leveldb.{SharedLeveldbJournal, SharedLeveldbStore}
+import akka.util.Timeout
+import com.typesafe.config.ConfigFactory
 
 import scala.concurrent.duration._
-import com.typesafe.config.ConfigFactory
-import akka.actor.ActorSystem
-import akka.actor.PoisonPill
-import akka.actor.Props
-import akka.actor.RootActorPath
-import akka.cluster.client.{ClusterClientReceptionist, ClusterClientSettings, ClusterClient}
-import akka.cluster.singleton.{ClusterSingletonManagerSettings, ClusterSingletonManager}
-import akka.japi.Util.immutableSeq
-import akka.actor.AddressFromURIString
-import akka.actor.ActorPath
-import akka.persistence.journal.leveldb.SharedLeveldbStore
-import akka.persistence.journal.leveldb.SharedLeveldbJournal
-import akka.util.Timeout
-import akka.pattern.ask
-import akka.actor.Identify
-import akka.actor.ActorIdentity
 
 object Main {
 

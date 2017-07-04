@@ -1,10 +1,11 @@
-package com.scala.akka
+package com.scala.akka.cluster
 
-import scala.concurrent.duration._
 import akka.actor.Actor
+import akka.cluster.singleton.{ClusterSingletonProxy, ClusterSingletonProxySettings}
 import akka.pattern._
 import akka.util.Timeout
-import akka.cluster.singleton.{ClusterSingletonProxySettings, ClusterSingletonProxy}
+
+import scala.concurrent.duration._
 
 object Frontend {
   case object Ok
